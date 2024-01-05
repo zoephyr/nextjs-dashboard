@@ -1,5 +1,16 @@
-import { deleteInvoice } from '@/app/lib/actions';
-import { PencilIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
+import {
+  deleteInvoice,
+  markInvoicePaid,
+  markInvoicePending,
+} from '@/app/lib/actions';
+import {
+  CheckCircleIcon,
+  ClockIcon,
+  CurrencyDollarIcon,
+  PencilIcon,
+  PlusIcon,
+  TrashIcon,
+} from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
 export function CreateInvoice() {
@@ -18,10 +29,38 @@ export function UpdateInvoice({ id }: { id: string }) {
   return (
     <Link
       href={`/dashboard/invoices/${id}/edit`}
-      className="rounded-md border p-2 hover:bg-gray-100"
+      className="rounded-md border p-2 bg-blue-200 hover:bg-blue-300"
     >
       <PencilIcon className="w-5" />
     </Link>
+  );
+}
+
+export function MarkInvoicePaid({ id }: { id: string }) {
+  const markInvoicePaidWithId = markInvoicePaid.bind(null, id);
+  return (
+    <>
+      <form action={markInvoicePaidWithId}>
+        <button className="rounded-md border p-2 bg-green-200 hover:bg-green-300">
+          <span className="sr-only">Mark Paid</span>
+          <CurrencyDollarIcon className="w-5" />
+        </button>
+      </form>
+    </>
+  );
+}
+
+export function MarkInvoicePending({ id }: { id: string }) {
+  const markInvoicePendingWithId = markInvoicePending.bind(null, id);
+  return (
+    <>
+      <form action={markInvoicePendingWithId}>
+        <button className="rounded-md border p-2 bg-yellow-200 hover:bg-yellow-300">
+          <span className="sr-only">Mark Paid</span>
+          <ClockIcon className="w-5" />
+        </button>
+      </form>
+    </>
   );
 }
 
@@ -30,7 +69,7 @@ export function DeleteInvoice({ id }: { id: string }) {
   return (
     <>
       <form action={deleteInvoiceWithId}>
-        <button className="rounded-md border p-2 hover:bg-gray-100">
+        <button className="rounded-md border p-2 bg-red-200 hover:bg-red-300">
           <span className="sr-only">Delete</span>
           <TrashIcon className="w-5" />
         </button>
