@@ -25,7 +25,7 @@ export default function Page() {
             <a href="https://nextjs.org/learn/" className="text-purple-500">
               Next.js Learn Course
             </a>
-            , brought to you by Vercel.
+            , brought to you by Vercel. And Zoey :^)
             
           </p>
           <div className="h-0 w-0 border-b-[30px] border-l-[20px] border-r-[20px] border-b-black border-l-transparent border-r-transparent">
