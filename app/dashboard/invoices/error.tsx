@@ -19,7 +19,7 @@ export default function Error({
       <h2 className="text-center">Something went wrong! Message Received:</h2>
       <p className="text-center text-bold">{String(error)}</p>
       <button
-        className="mt-4 rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-400"
+        className="mt-4 rounded-md bg-purple-500 px-4 py-2 text-sm text-white transition-colors hover:bg-purple-400"
         onClick={
           // Attempt to recover by trying to re-render the invoices route
           () => reset()
